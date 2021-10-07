@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import CreateGame from "./pages/CreateGame/CreateGame";
+import CreateGame from "./pages/Games/CreateGame/CreateGame";
 
 import { Home } from "./pages/Home/Home";
 
