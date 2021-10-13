@@ -1,7 +1,25 @@
-/* eslint-disable no-sequences */
-// import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Api } from "../../api/Api";
+import React, { useEffect, useState } from 'react';
+import { Api } from '../../api/Api';
+import tw from 'tailwind-styled-components';
+
+import {
+  CardWrapper,
+  CardOverlay,
+  CardContent,
+  CardH3,
+  CardLink,
+  CardSpan,
+} from '../GameCard/GameCard';
+
+const Section = tw.section`
+  mt-6
+  grid
+  grid-cols-1
+  md:grid-cols-3
+  lg:grid-cols-3
+  gap-x-6
+  gap-y-8
+`;
 
 export default function GamesList() {
   const [games, setGames] = useState([]);
@@ -15,12 +33,23 @@ export default function GamesList() {
     loadGamesList();
   }, []);
 
-  console.log(`Games list: ${games}`);
   return (
-    <div className="col">
+    <Section>
       {games.map((game, index) => (
-        <div key={`game-list-${index}`}>{game.title}</div>
+        <a href={`games/${game.id}`} key={`game-list-${index}`}>
+          <CardWrapper imgurl={game.cover}>
+            <CardOverlay />
+            <CardContent>
+              <CardH3>
+                <CardLink>
+                  <CardSpan />
+                  {game.title}
+                </CardLink>
+              </CardH3>
+            </CardContent>
+          </CardWrapper>
+        </a>
       ))}
-    </div>
+    </Section>
   );
 }
