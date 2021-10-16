@@ -3,21 +3,21 @@ import { Api } from '../../api/Api';
 import tw from 'tailwind-styled-components';
 
 import {
-  CardWrapper,
+  CardBody,
   CardOverlay,
   CardContent,
   CardH3,
   CardLink,
   CardSpan,
 } from '../GameCard/GameCard';
+import { Link } from 'react-router-dom';
 
 const Section = tw.section`
-  mt-6
   grid
   grid-cols-1
   md:grid-cols-3
   lg:grid-cols-3
-  gap-x-6
+  gap-x-1
   gap-y-8
 `;
 
@@ -36,8 +36,8 @@ export default function GamesList() {
   return (
     <Section>
       {games.map((game, index) => (
-        <a href={`games/${game.id}`} key={`game-list-${index}`}>
-          <CardWrapper imgurl={game.cover}>
+        <Link to={`games/${game.id}`} key={`game-list-${index}`}>
+          <CardBody imgurl={game.cover}>
             <CardOverlay />
             <CardContent>
               <CardH3>
@@ -47,8 +47,8 @@ export default function GamesList() {
                 </CardLink>
               </CardH3>
             </CardContent>
-          </CardWrapper>
-        </a>
+          </CardBody>
+        </Link>
       ))}
     </Section>
   );
