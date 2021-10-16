@@ -14,7 +14,8 @@ module.exports = {
     colors: {
       primary: '#1E293B',
       'theme-bg': '#111827',
-      white: '#FFFFFF',
+      white: '#FFF',
+      black: '000',
     },
   },
   variants: {
