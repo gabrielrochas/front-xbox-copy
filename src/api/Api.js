@@ -1,21 +1,26 @@
 export const Api = {
-  baseURL: "http://localhost:8008",
+  baseURL: 'http://localhost:8008',
 
-  readAllUrl: () => Api.baseURL + "/games",
-  createGameUrl: () => Api.baseURL + "/games",
+  // Endpoint - Login
+  loginUrl: () => Api.baseURL + '/login',
 
-  //Get all games
+  //Endpoint - Games
+  readAllUrl: () => Api.baseURL + '/games',
+  readByIdUrl: (id) => Api.baseURL + '/games/' + id,
+  createGameUrl: () => Api.baseURL + '/games',
+
+  // GET
   buildApiGetRequest: (url) =>
     fetch(url, {
-      method: "GET",
+      method: 'GET',
     }),
 
-  // Create a new game
+  // POST
   buildApiPostRequest: (url, body) =>
     fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: new Headers({
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       }),
       body: JSON.stringify(body),
     }),
