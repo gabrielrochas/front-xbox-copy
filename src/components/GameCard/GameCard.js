@@ -1,14 +1,15 @@
 import tw from 'tailwind-styled-components';
 import styled from 'styled-components';
 
-const CardWrapperScope = tw.div`
+const CardScope = tw.div`
   relative
   w-full
   h-64
   bg-cover
   bg-center
   group
-  rounded-sm
+  transform
+  -skew-x-6
   overflow-hidden
   shadow-lg
   hover:shadow-2xl
@@ -17,7 +18,7 @@ const CardWrapperScope = tw.div`
   ease-in-out
 `;
 
-export const CardWrapper = styled(CardWrapperScope)`
+export const CardBody = styled(CardScope)`
   background-image: url(${(props) => props.imgurl});
 `;
 
