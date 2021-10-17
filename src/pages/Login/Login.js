@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Api } from '../../api/Api';
-import { Container } from '../../styles/Container';
 import tw from 'tailwind-styled-components';
+import { Api } from '../../api/Api';
+import { JwtHandler } from '../../jwt-handler/JwtHandler';
+import { Container } from '../../styles/Container';
 import { Link } from 'react-router-dom';
 
 const FormScope = tw.div`
@@ -28,6 +29,7 @@ const FormBody = tw.div`
 export default function Login(props) {
   const [fields, setFields] = useState('');
 
+  // Get fields values
   const handleChange = (e) => {
     const auxFields = { ...fields };
     auxFields[e.target.id] = e.target.value;
@@ -36,16 +38,17 @@ export default function Login(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Set fields values to payload
     const payload = {
       ...fields,
     };
-
+    // It does a request to the backend
     const response = await Api.buildApiPostRequest(Api.loginUrl(), payload);
     const body = await response.json();
 
     if (response.status === 200) {
       const accessToken = body.accessToken;
-      localStorage.setItem('JWT', accessToken);
+      JwtHandler.setJwt(accessToken);
       props.history.push(`/`);
     }
   };

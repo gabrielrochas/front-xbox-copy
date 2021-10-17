@@ -1,5 +1,10 @@
+import { JwtHandler } from '../jwt-handler/JwtHandler';
 export const Api = {
   baseURL: 'http://localhost:8008',
+
+  authHeader: () => ({
+    Authorization: 'Bearer ' + JwtHandler.getJwt(),
+  }),
 
   // Endpoint - Login
   loginUrl: () => Api.baseURL + '/login',

@@ -20,7 +20,7 @@ export const DesktopMenu = (props) => {
         </>
       ) : (
         <Link
-          to='/'
+          to='/logout'
           className='whitespace-nowrap text-base font-medium text-white hover:text-gray-900'
           onClick={props.handleLogout}
         >
