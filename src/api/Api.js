@@ -1,6 +1,6 @@
 import { JwtHandler } from '../jwt-handler/JwtHandler';
 export const Api = {
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8080',
+  baseURL: "https://backend-games.herokuapp.com",
 
   // Endpoint - Login
   loginUrl: () => Api.baseURL + "/login",
