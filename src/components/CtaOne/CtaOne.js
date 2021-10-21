@@ -32,17 +32,20 @@ const CtaH1 = tw.h1`
 `;
 
 export const GameCta = (props) => {
-  const id = 2; //props.id;
+  const id = props.id || 2;
   const [game, setGame] = useState(2);
 
   useEffect(() => {
     const loadGame = async () => {
-      const response = await Api.buildApiGetRequest(Api.readByIdUrl(id));
+      const response = await Api.buildApiGetRequest(
+        Api.readGameByIdUrl(id),
+        true
+      );
       const results = await response.json();
       setGame(results);
     };
     loadGame();
-  }, []);
+  }, [id]);
   return (
     <CtaBg imgurl={game.cover}>
       <CtaContent>

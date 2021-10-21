@@ -26,7 +26,7 @@ export default function GamesList() {
 
   useEffect(() => {
     const loadGamesList = async () => {
-      const response = await Api.buildApiGetRequest(Api.readAllUrl());
+      const response = await Api.buildApiGetRequest(Api.readAllGamesUrl());
       const results = await response.json();
       setGames(results);
     };
@@ -36,7 +36,7 @@ export default function GamesList() {
   return (
     <Section>
       {games.map((game, index) => (
-        <Link to={`games/${game.id}`} key={`game-list-${index}`}>
+        <Link to={`games/details/${game.id}`} key={`game-list-${index}`}>
           <CardBody imgurl={game.cover}>
             <CardOverlay />
             <CardContent>
