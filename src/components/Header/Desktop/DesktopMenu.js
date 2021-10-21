@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export const DesktopMenu = (props) => {
+  console.log(props);
   return (
     <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
       {props.isLogged !== true ? (
@@ -19,13 +20,28 @@ export const DesktopMenu = (props) => {
           </a>
         </>
       ) : (
-        <Link
-          to='/logout'
-          className='whitespace-nowrap text-base font-medium text-white hover:text-gray-900'
-          onClick={props.handleLogout}
-        >
-          Sign out
-        </Link>
+        <>
+          <Link
+            to='/games/create'
+            className='mr-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+          >
+            New Game
+          </Link>
+          <Link
+            to={`/user/`}
+            className='whitespace-nowrap text-base font-medium text-white hover:text-gray-900'
+            onClick={props.handleLogout}
+          >
+            User Details
+          </Link>
+          <Link
+            to='/logout'
+            className='whitespace-nowrap text-base font-medium text-white hover:text-gray-900'
+            onClick={props.handleLogout}
+          >
+            Sign out
+          </Link>
+        </>
       )}
     </div>
   );

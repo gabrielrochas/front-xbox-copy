@@ -11,11 +11,10 @@ export default function Example() {
 
   useEffect(() => {
     setIsLogged(Boolean(JwtHandler.getJwt()));
-    console.log('Is Logged: ', isLogged);
   }, [isLogged]);
 
   return (
-    <Popover className='fixed z-10 mx-auto inset-x-0 top-0 bg-primary bg-opacity-75'>
+    <Popover className='mx-auto inset-x-0 top-0 bg-primary'>
       <DesktopHeader isLogged={isLogged} handleLogout={Logout} />
       <MobileHeader isLogged={isLogged} handleLogout={Logout} />
     </Popover>

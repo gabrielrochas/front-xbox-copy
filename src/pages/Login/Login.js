@@ -1,30 +1,15 @@
 import React, { useState } from 'react';
-import tw from 'tailwind-styled-components';
 import { Api } from '../../api/Api';
 import { JwtHandler } from '../../jwt-handler/JwtHandler';
-import { Container } from '../../styles/Container';
 import { Link } from 'react-router-dom';
 
-const FormScope = tw.div`
-  w-full
-  h-screen
-  flex
-  items-center
-  justify-center
-`;
-
-const FormBody = tw.div`
-  bg-primary
-  w-96
-  h-auto
-  pt-8
-  pb-8
-  px-8
-  flex
-  flex-col
-  items-center
-  transform
-`;
+import { Container } from '../../styles/Container';
+import {
+  FormScope,
+  FormBody,
+  InputText,
+  SubmitButton,
+} from '../../components/Form';
 
 export default function Login(props) {
   const [fields, setFields] = useState('');
@@ -55,29 +40,22 @@ export default function Login(props) {
   return (
     <Container>
       <FormScope>
-        <FormBody>
+        <FormBody inputwidth='24rem'>
           <h1 className='text-white'>Login</h1>
           <form onSubmit={handleSubmit}>
-            <input
+            <InputText
               type='text'
               id='email'
-              className='w-full h-12 px-4 text-lg focus:ring-theme-bg mb-4 transform -skew-x-6'
               placeholder='Email'
               onChange={handleChange}
             />
-            <input
+            <InputText
               type='password'
               id='password'
-              className='w-full h-12 px-4 text-lg focus:ring-theme-bg mb-4 transform -skew-x-6'
               placeholder='Password'
               onChange={handleChange}
             />
-            <button
-              type='submit'
-              className='bg-theme-bg w-full h-12 px-4 text-lg text-white  mb-4 transform -skew-x-6'
-            >
-              Login
-            </button>
+            <SubmitButton type='submit'>Login</SubmitButton>
           </form>
           <Link to='/'>Back home</Link>
         </FormBody>

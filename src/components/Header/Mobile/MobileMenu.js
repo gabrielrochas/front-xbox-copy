@@ -37,13 +37,21 @@ export const MobileMenu = (props) => {
             </Link>
           </span>
         ) : (
-          <Link
-            to='/'
-            onClick={props.handleLogout}
-            className='text-indigo-600 hover:text-indigo-500'
-          >
-            Log out
-          </Link>
+          <div className='flex flex-col mb-2'>
+            <Link
+              to='/games/create'
+              className='inline-flex items-center justify-center mb-2 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+            >
+              New Game
+            </Link>
+            <Link
+              to='/'
+              onClick={props.handleLogout}
+              className='text-indigo-600 hover:text-indigo-500'
+            >
+              Log out
+            </Link>
+          </div>
         )}
       </p>
     </div>
