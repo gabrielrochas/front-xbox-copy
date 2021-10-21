@@ -15,7 +15,7 @@ module.exports = {
       primary: '#1E293B',
       'theme-bg': '#111827',
       white: '#FFF',
-      black: '000',
+      black: '#000',
     },
   },
   variants: {
