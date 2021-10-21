@@ -10,8 +10,8 @@ const CtaScope = tw.div`
   bg-center
   bg-white
   overflow-hidden
-
 `;
+
 const CtaBg = styled(CtaScope)`
   height: 500px;
   background-image: url(${(props) => props.imgurl});

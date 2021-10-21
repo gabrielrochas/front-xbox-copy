@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 export const DesktopMenu = (props) => {
-  console.log(props);
   return (
     <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
       {props.isLogged !== true ? (
