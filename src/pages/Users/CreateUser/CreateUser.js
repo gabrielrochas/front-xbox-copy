@@ -28,7 +28,7 @@ export const CreateUser = (props) => {
       );
       
       if (response.status === 201) {
-        props.history.push("/");
+        props.history.push("/login");
       }
     };
 
