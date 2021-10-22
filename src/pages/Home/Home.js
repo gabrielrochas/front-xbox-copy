@@ -6,7 +6,6 @@ import { GameCta } from '../../components/CtaOne/CtaOne';
 import { Container } from '../../styles/Container';
 
 export function Home() {
-    console.log(process.env.REACT_APP_API_URL);
   return (
     <div>
       <Header />
