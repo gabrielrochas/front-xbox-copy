@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 import tw from 'tailwind-styled-components';
-import styled from 'styled-components';
 
 const LinkStyleScope = tw.div`
   w-full
@@ -25,7 +24,10 @@ export const MobileMenu = (props) => {
   const isLogged = props.isLogged;
   return (
     <div className='py-6 px-5 space-y-6'>
-      {isLogged !== true ? <LinkStyleScope ><Link to='/signup'>Sign up</Link></LinkStyleScope> : ''}
+      {isLogged !== true ? 
+        <LinkStyleScope >
+            <Link to='/signup'>Sign up</Link>
+        </LinkStyleScope> : ''}
       <p className='mt-6 text-center text-base font-medium text-white'>
         {isLogged !== true ? (
           <span>
